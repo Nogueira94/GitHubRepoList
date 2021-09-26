@@ -1,5 +1,7 @@
 <resources>
-    <string name="app_name">github_api_app</string>
-    <string name="no_internet_connection">No Internet</string>
+    <string name="app_name">Kotlin GitHubRepo Finder</string>
+    <string name="no_internet_connection">Sem conexão, verifique sua conexão e tente novamente!</string>
+    <string name="api_response_limit">Muitas requisições, aguarde e tente novamente !</string>
+    <string name="generic_error">Erro, tente novamente !</string>
     <string name="retry">Retry</string>
 </resources>

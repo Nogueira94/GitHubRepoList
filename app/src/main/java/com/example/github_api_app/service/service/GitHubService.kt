@@ -17,19 +17,3 @@ interface GitHubService {
     ) : Response<SearchResult<Item>>
 
 }
-
-
-
-
-
-
-
-
-
-//class GitHubServiceImpl(val queryParam : String, val page: Int) : GitHubService {
-//    override suspend fun getRepositoriesByStar(
-//        queryParams: String,
-//        sort: String,
-//        page: Int
-//    ): Response<SearchResult<Item>> = getRepositoriesByStar(queryParams,page = page)
-//}

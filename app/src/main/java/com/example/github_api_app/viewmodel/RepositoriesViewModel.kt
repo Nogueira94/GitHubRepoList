@@ -1,28 +1,22 @@
 package com.example.github_api_app.viewmodel
 
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.switchMap
-import androidx.lifecycle.viewModelScope
-import androidx.paging.Pager
-import androidx.paging.PagingConfig
-import androidx.paging.cachedIn
-import androidx.paging.liveData
-import com.example.github_api_app.service.repository.GitRepoPaging
+import androidx.paging.PagingData
+import com.example.github_api_app.model.Item
+import com.example.github_api_app.service.repository.GitHubRepoImpl
 import com.example.github_api_app.service.repository.gitHubService
+import kotlinx.coroutines.flow.Flow
 
 class RepositoriesViewModel() : ViewModel() {
 
     private val service = gitHubService
-    private val list = MutableLiveData("")
-    val repoList = list.switchMap {
-        Pager(PagingConfig(pageSize = 30, maxSize = 100000)) {
-            GitRepoPaging(it,service)
-        }.liveData.cachedIn(viewModelScope)
-    }
 
-    fun getRepoForLang(s: String){
-        list.postValue(s)
+    private val repository : GitHubRepoImpl = GitHubRepoImpl(service)
+    var currentResult: Flow<PagingData<Item>>? = null
+
+    fun getAllRepo(s: String) : Flow<PagingData<Item>>{
+        currentResult = repository.getRepositoriesByStar(s)
+        return currentResult as Flow<PagingData<Item>>
     }
 
 }
