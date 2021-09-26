@@ -1,6 +1,5 @@
 package com.example.github_api_app.model
 
-import com.example.github_api_app.model.Utils.OwnerType
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable

@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+
+    android:layout_gravity="center">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvLancamentosPopup"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@color/white2"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/tvTituloPopup"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:autoSizeTextType="uniform"
+                    android:lines="1"
+                    android:layout_weight="1"
+                    android:background="@color/midgrey"
+                    android:gravity="center"
+                    android:paddingStart="5dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="@color/white2"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/btnFecharPopup"
+                    android:layout_width="0dp"
+                    android:paddingEnd="5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/midgrey"
+                    android:text="@string/x"
+                    android:clickable="true"
+                    android:textColor="@color/white2"
+                    android:gravity="center"
+                    android:layout_weight=".15"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/lightgrey"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:padding="7dp">
+
+                <ImageView
+                    android:id="@+id/ivRepoImage"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight=".4"
+                    android:foregroundGravity="center"
+                    android:scaleType="fitCenter" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="3dp">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/repo_icon" />
+
+                        <TextView
+                            android:id="@+id/tvRepoName"
+                            android:layout_width="0dp"
+                            android:autoSizeTextType="uniform"
+                            android:layout_weight="1"
+                            android:maxLines="2"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:padding="3dp"
+                            android:textColor="@color/darkgrey"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="3dp">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/author_icon" />
+
+                        <TextView
+                            android:id="@+id/tvAutorName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="3dp"
+                            android:textColor="@color/darkgrey"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="3dp">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_baseline_category_24" />
+
+                        <TextView
+                            android:id="@+id/tvType"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="3dp"
+                            android:textColor="@color/darkgrey"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/lightgrey"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/desc"
+                    android:textColor="@color/darkgrey"/>
+
+                <TextView
+                    android:id="@+id/tvRepoDesc"
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:padding="7dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/darkgrey"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/containerStars"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/stars_icon"/>
+                        <TextView
+                            android:id="@+id/tvQtStars"
+                            android:textColor="@color/darkgrey"
+                            android:textSize="15sp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/containerFork"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/fork_icon"/>
+                        <TextView
+                            android:id="@+id/tvQtFork"
+                            android:textColor="@color/darkgrey"
+                            android:textSize="15sp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@color/lightgrey"
+                android:paddingVertical="10dp"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="10dp"
+                    android:gravity="center">
+
+                    <ImageButton
+                        android:id="@+id/btnShare"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:scaleType="center"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:backgroundTint="@color/midgrey"
+                        android:src="@drawable/ic_baseline_share_24"
+                        android:clickable="true" />
+                    <TextView
+                        android:text="@string/compartilhar"
+                        android:layout_width="wrap_content"
+                        android:textColor="@color/darkgrey"
+                        android:textSize="10dp"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="10dp"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <ImageButton
+                        android:id="@+id/btnWeb"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:scaleType="center"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:backgroundTint="@color/darkgrey"
+                        android:src="@drawable/ic_baseline_web_asset_24"
+                        android:clickable="true" />
+                    <TextView
+                        android:text="@string/see_web"
+                        android:layout_width="wrap_content"
+                        android:textColor="@color/darkgrey"
+                        android:textSize="10dp"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

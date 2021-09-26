@@ -9,9 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.github_api_app.R
 import com.example.github_api_app.databinding.ItemLoadBinding
 import com.example.github_api_app.service.repository.GitRepoPaging
-import com.example.github_api_app.view.home.HomeActivity
 import com.example.github_api_app.view.home.adapter.GitRepoAdapter
-import java.io.IOException
 import java.net.UnknownHostException
 
 class GitRepoLoadStateAdapter (
