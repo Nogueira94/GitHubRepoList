@@ -19,19 +19,34 @@ import com.example.github_api_app.viewmodel.RepositoriesViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import java.util.zip.GZIPOutputStream
 
 
 class HomeActivity : AppCompatActivity() {
 
     init {
         instance = this
+        FIRST_REQ = true
     }
 
     companion object{
+        var FIRST_REQ = true
         private var instance: HomeActivity? = null
 
         fun applicationContext() : Context {
             return instance!!.applicationContext
+        }
+
+        fun showRetryBtn(){
+            instance!!.bind.progressBarContainer.visibility = View.GONE
+            instance!!.bind.noconnectionContainer.visibility = View.VISIBLE
+            instance!!.bind.retryButton.setOnClickListener {
+                instance!!.checkNetwork(NetworkState.checkForInternet(instance!!))
+            }
+        }
+
+        fun hideProgress(){
+            instance!!.bind.progressBarContainer.visibility = View.GONE
         }
 
         fun getFragmentManager(): FragmentManager {
@@ -66,27 +81,22 @@ class HomeActivity : AppCompatActivity() {
 
     }
 
-    private fun hideProgress(){
-        Handler().postDelayed({
-            bind.progressBarContainer.visibility = View.GONE
-        },2000)
-    }
 
     private fun startView() {
+        showProgress()
         if(bind.noconnectionContainer.isVisible){
             bind.noconnectionContainer.visibility = View.GONE
         }
         loadData("language:kotlin")
         setRecyclerView()
-        hideProgress()
     }
 
 
     private fun startNoNetworkView(){
+        hideProgress()
         bind.noconnectionContainer.visibility = View.VISIBLE
         bind.retryButton.setOnClickListener {
             checkNetwork(NetworkState.checkForInternet(this))
-            showProgress()
         }
     }
 

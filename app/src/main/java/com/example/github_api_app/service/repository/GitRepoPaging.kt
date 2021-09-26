@@ -4,6 +4,7 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.example.github_api_app.model.Item
 import com.example.github_api_app.service.service.GitHubService
+import com.example.github_api_app.view.home.HomeActivity
 import retrofit2.HttpException
 import java.io.IOException
 
@@ -28,6 +29,8 @@ override fun getRefreshKey(state: PagingState<Int, Item>): Int? {
             return try {
                 if (data.isSuccessful) {
                     itens = data.body()?.items!!
+                    HomeActivity.hideProgress()
+                    HomeActivity.FIRST_REQ = false
                 } else {
                     throw APIResponseERROR(data.errorBody().toString())
                 }
@@ -41,7 +44,11 @@ override fun getRefreshKey(state: PagingState<Int, Item>): Int? {
             } catch (e: HttpException) {
                 LoadResult.Error(e)
             } catch (e: APIResponseERROR) {
-                LoadResult.Error(e)
+                if(HomeActivity.FIRST_REQ){
+                    throw FirstReqERROR("ERROR")
+                } else {
+                    LoadResult.Error(e)
+                }
             }
         } catch (e: Exception){
             return LoadResult.Error(e)
@@ -49,5 +56,12 @@ override fun getRefreshKey(state: PagingState<Int, Item>): Int? {
     }
 
     class APIResponseERROR(s: String) : Exception(s)
+
+    class FirstReqERROR(s:String) : Exception(s){
+        init {
+            HomeActivity.hideProgress()
+            HomeActivity.showRetryBtn()
+        }
+    }
 
 }
