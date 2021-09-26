@@ -8,6 +8,62 @@
     android:orientation="vertical"
     android:background="@color/darkgrey">
 
+    <LinearLayout
+        android:id="@+id/progress_bar_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/progress_bar"
+            style="?android:attr/progressBarStyle"
+            android:indeterminate="true"
+            android:indeterminateTint="@color/white2"
+            android:layout_width="80dp"
+            android:layout_height="80dp"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/noconnection_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:paddingHorizontal="5dp"
+        android:orientation="vertical"
+        android:visibility="gone"
+        >
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/gifLoad"
+            android:layout_width="wrap_content"
+            android:layout_height="400dp"
+            android:src="@drawable/git_load_trans"
+            android:scaleType="centerInside"/>
+
+        <TextView
+            android:text="@string/no_internet_connection"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textColor="@color/white2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/retry_button"
+            android:layout_width="wrap_content"
+            android:backgroundTint="@color/white2"
+            android:textColor="@color/darkgrey"
+            android:layout_height="wrap_content"
+            android:text="@string/retry"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/progress_bar" />
+
+
+    </LinearLayout>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvGitRepo"
