@@ -7,6 +7,7 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -31,6 +32,10 @@ class HomeActivity : AppCompatActivity() {
 
         fun applicationContext() : Context {
             return instance!!.applicationContext
+        }
+
+        fun getFragmentManager(): FragmentManager {
+            return instance!!.supportFragmentManager
         }
     }
 
