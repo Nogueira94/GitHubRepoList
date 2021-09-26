@@ -40,7 +40,6 @@ class HomeActivity : AppCompatActivity() {
         fun showRetryBtn(){
             instance!!.bind.progressBarContainer.visibility = View.GONE
             instance!!.bind.noconnectionContainer.visibility = View.VISIBLE
-            instance!!.bind.tvConnection.text = "Muitas requisições, aguarde e tente novamente"
             instance!!.bind.retryButton.setOnClickListener {
                 instance!!.checkNetwork(NetworkState.checkForInternet(instance!!))
             }
