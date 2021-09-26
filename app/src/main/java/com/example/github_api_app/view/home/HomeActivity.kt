@@ -1,17 +1,15 @@
 package com.example.github_api_app.view.home
 
+import android.content.Context
 import android.os.Bundle
 import android.os.Handler
-import android.view.LayoutInflater
 import android.view.View
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.github_api_app.R
 import com.example.github_api_app.databinding.ActivityHomeBinding
 import com.example.github_api_app.service.adapter.GitRepoLoadStateAdapter
 import com.example.github_api_app.utils.NetworkState
@@ -19,11 +17,22 @@ import com.example.github_api_app.view.home.adapter.GitRepoAdapter
 import com.example.github_api_app.viewmodel.RepositoriesViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.launch
 
 
 class HomeActivity : AppCompatActivity() {
+
+    init {
+        instance = this
+    }
+
+    companion object{
+        private var instance: HomeActivity? = null
+
+        fun applicationContext() : Context {
+            return instance!!.applicationContext
+        }
+    }
 
     private val viewModel : RepositoriesViewModel by viewModels()
     private val gitRepoAdapter : GitRepoAdapter = GitRepoAdapter()

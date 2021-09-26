@@ -12,7 +12,7 @@ class RepositoriesViewModel() : ViewModel() {
     private val service = gitHubService
 
     private val repository : GitHubRepoImpl = GitHubRepoImpl(service)
-    var currentResult: Flow<PagingData<Item>>? = null
+    private var currentResult: Flow<PagingData<Item>>? = null
 
     fun getAllRepo(s: String) : Flow<PagingData<Item>>{
         currentResult = repository.getRepositoriesByStar(s)

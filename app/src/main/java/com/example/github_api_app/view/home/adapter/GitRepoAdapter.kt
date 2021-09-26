@@ -1,13 +1,18 @@
 package com.example.github_api_app.view.home.adapter
 
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat.startActivity
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.github_api_app.databinding.CardGitrepoBinding
 import com.example.github_api_app.model.Item
+import com.example.github_api_app.view.home.HomeActivity
+
 
 class GitRepoAdapter : PagingDataAdapter<Item,GitRepoAdapter.GitRepoViewHolder>(DIFF_UTILL) {
 
@@ -42,6 +47,17 @@ class GitRepoAdapter : PagingDataAdapter<Item,GitRepoAdapter.GitRepoViewHolder>(
         holder.bind.tvQtFork.text = repo?.forks.toString()
         holder.bind.tvQtStars.text = repo?.stars.toString()
         holder.bind.tvAutorName.text = repo?.owner?.user
+
+        holder.bind.root.setOnClickListener {
+            val i = Intent(Intent.ACTION_VIEW, Uri.parse(repo?.repoUrl.toString()))
+            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(
+                HomeActivity.applicationContext(),
+                i,
+                null
+            )
+        }
+
     }
 
     inner class GitRepoViewHolder(val bind: CardGitrepoBinding) : RecyclerView.ViewHolder(bind.root)

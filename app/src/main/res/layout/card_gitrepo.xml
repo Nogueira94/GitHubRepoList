@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/round_card"
     android:layout_marginHorizontal="5dp"
     android:orientation="horizontal">
@@ -20,29 +19,57 @@
 
     <LinearLayout
         android:id="@+id/containerRepoInfo"
+        android:layout_marginVertical="5dp"
+        android:layout_marginEnd="7dp"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tvRepoName"
-            android:textColor="@color/white2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/tvAutorName"
-            android:textColor="@color/white2"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:paddingBottom="3dp">
+
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/repo_icon"/>
+
+            <TextView
+                android:id="@+id/tvRepoName"
+                android:paddingStart="3dp"
+                android:gravity="center_vertical"
+                android:textColor="@color/white2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="3dp">
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_gravity="center"
+                android:src="@drawable/author_icon"/>
+            <TextView
+                android:id="@+id/tvAutorName"
+                android:paddingStart="3dp"
+                android:textColor="@color/white2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"/>
+        </LinearLayout>;
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingBottom="5dp">
+            android:orientation="horizontal">
 
             <LinearLayout
                 android:id="@+id/containerStars"
