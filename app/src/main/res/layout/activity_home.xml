@@ -12,7 +12,8 @@
         android:id="@+id/progress_bar_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center">
+        android:gravity="center"
+        android:visibility="gone">
         <androidx.core.widget.ContentLoadingProgressBar
             android:id="@+id/progress_bar"
             style="?android:attr/progressBarStyle"
@@ -29,14 +30,12 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:paddingHorizontal="5dp"
-        android:orientation="vertical"
-        android:visibility="gone"
-        >
+        android:orientation="vertical">
 
         <pl.droidsonroids.gif.GifImageView
             android:id="@+id/gifLoad"
-            android:layout_width="wrap_content"
-            android:layout_height="400dp"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             android:src="@drawable/git_load_trans"
             android:scaleType="centerInside"/>
 

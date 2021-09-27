@@ -2,6 +2,7 @@ package com.example.github_api_app.view.home.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentManager
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -10,9 +11,10 @@ import com.example.github_api_app.databinding.CardGitrepoBinding
 import com.example.github_api_app.model.Item
 import com.example.github_api_app.view.home.HomeActivity
 import com.example.github_api_app.view.home.dialog.RepoDialog
+import com.example.github_api_app.view.home.utils.GitHubView
 
 
-class GitRepoAdapter : PagingDataAdapter<Item,GitRepoAdapter.GitRepoViewHolder>(DIFF_UTILL) {
+class GitRepoAdapter (private val view: GitHubView) : PagingDataAdapter<Item,GitRepoAdapter.GitRepoViewHolder>(DIFF_UTILL) {
 
     companion object {
         val DIFF_UTILL = object  : DiffUtil.ItemCallback<Item>(){
@@ -48,7 +50,7 @@ class GitRepoAdapter : PagingDataAdapter<Item,GitRepoAdapter.GitRepoViewHolder>(
 
         holder.bind.root.setOnClickListener {
             val dialog = RepoDialog(repo!!)
-            dialog.show(HomeActivity.getFragmentManager(),"DIALOG SHOW")
+            dialog.show(view.getFragManager(),"DIALOG SHOW")
         }
 
     }
